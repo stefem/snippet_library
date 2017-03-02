@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head 
+         content must come *after* these tags -->
+    
+    <title>Stars</title>  
+
+    <style type="text/css">
+    	html {
+    		font-family: "Century Gothic", sans-serif;
+    		font-size: 12px;
+    		color: black;
+    	}
+    </style>  
+   
+
+<script>
+	var t = 1298342813086;
+	var display;
+
+	function addCommas (t){
+
+		var tc = t.toString().length;
+		
+		if (tc > 3) {
+			return tc.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		} else {
+		return tc;
+		}	
+
+	}
+
+	console.log("commas: " + addCommas(3456922431));
+
+	// calculate (and subtract) whole weeks
+	
+		var years = Math.floor(t / 31600800);
+		t -= years * 31600800;
+		console.log("t: " + t);
+		console.log("years: " + years);
+		if (years && years < 2) {
+			display = years + " year";
+			console.log("display: " + display);	
+		}	else if (years && years > 1) {
+			display = years + " years";
+			console.log("display: " + display);	
+		}	
+
+
+		var months = Math.floor(t / 2633400);
+		t -= months * 2633400;
+		console.log("t: " + t);
+		console.log("months: " + months);
+		if (months && months < 2) {
+			display = display + ", " + months + " month";
+			console.log("display: " + display);	
+		}	else if (months && months > 1) {
+			display = display + ", " + months + " months";
+			console.log("display: " + display);	
+		}	
+
+
+		var weeks = Math.floor(t / 604800);
+		t -= weeks * 604800;
+		console.log("t: " + t);
+		console.log("weeks: " + weeks);
+		if (weeks && weeks < 2) {
+			display = display + ", " + weeks + " week";
+			console.log("display: " + display);	
+		}	else if (weeks && weeks > 1) {
+			display = display + ", " + weeks + " weeks";
+			console.log("display: " + display);	
+		}	
+
+
+
+		var days = Math.floor(t / 86400);
+		t -= days * 86400;
+		console.log("t: " + t);
+		console.log("days: " + days);
+		if (days && days < 2) {
+			display = display + ", " + days + " day";
+			console.log("display: " + display);	
+		}	else if (days && days > 1) {
+			display = display + ", " + days + " days";
+			console.log("display: " + display);	
+		}
+
+
+		var hours = Math.floor(t / 3600);
+		t -= hours * 3600;
+		console.log("t: " + t);
+		console.log("hours: " + hours);																								
+		if (hours && hours < 2) {
+			display = display + ", " + hours + " hour";
+			console.log("display: " + display);	
+		}	else if (hours && hours > 1) {
+			display = display + ", " + hours + " hours";
+			console.log("display: " + display);	
+		}
+</script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
