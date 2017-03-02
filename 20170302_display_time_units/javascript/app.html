@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head 
+         content must come *after* these tags -->
+    
+    <title>Stars</title>  
+
+    <style type="text/css">
+    	html {
+    		font-family: "Century Gothic", sans-serif;
+    		font-size: 12px;
+    		color: black;
+    	}
+    </style>  
+    <script>
+
+
+Number.prototype.round = function(places) {
+  return +(Math.round(this + "e+" + places)  + "e-" + places);
+}
+
+var distanceOptions;
+var speedOptions;
+var dd = 
+	[
+		[
+			"distance",
+			"distancePlaceholder",
+			distanceOptions,
+			[
+			    { value: 1, text: "Cornershop"},
+			    { value: 100, text: "Dover"},
+			    { value: 344, text: "Paris"},
+			    { value: 2395, text: "Athens"}
+			]
+		]
+		,
+		[
+			"speed",
+			"speedPlaceholder",
+			speedOptions,
+			[
+			    { value: 0.045, text: "Snail"},
+			    { value: 5, text: "Walk"},
+			    { value: 40, text: "Horse"},
+			    { value: 120, text: "Cheetah"}
+			]
+		]
+	];
+
+
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<h1>Walk To The Stars</h1>
+
+<form>
+	<p>Select a destination:</p>
+	<div id="distancePlaceholder">
+		<select id="distance">
+			<option value=1>The Cornershop</option>
+			<option value=100>Dover</option>
+			<option value=344>Paris</option>
+			<option value=2395>Athens</option>
+			<option value=384400>Moon</option>
+			<option value=149600000>Sun</option>
+			<option value=225000000>Mars</option>
+			<option value=588000000>Jupiter</option>
+			<option value=4670000000>Pluto</option>
+		</select>	
+	</div>
+
+	<p>And now select a mode of conveyance:</p>
+	<div id="speedPlaceholder">
+		<select id="speed">
+			<option value=0.00075>Snail</option>
+			<option value=0.08333>Walk</option>
+			<option value=0.66667>Horse</option>
+			<option value=2>Cheetah</option>
+		</select>
+	</div>	
+
+	<br /><br />
+	<input type="button" onClick=travelTimeCalc() value="Frenzied Calculation">
+</form>
+
+<h2>
+	Your travel time to: <span id="distanceResultDisplay"></span><br />
+
+	Speed: <span id="speedResultDisplay"></span><br />
+
+	is: <span id="unitsResultDisplay"></span>
+</h2>
+
+</body>
+</html>
+
+<script>
+
+// 3. Do the calculations - the following is based on used input in the generated dropdowns
+
+
+function calculateTime(unit_calculator){ 
+
+	// 1. get the distance value and put into page
+	var distanceBase = document.getElementById('distance');
+	var distanceValue = distanceBase.value;
+	var distanceSelect = distanceBase.selectedIndex;
+	var distanceOptions = distanceBase.options;
+	var distanceDisplay = distanceOptions[distanceSelect].text;
+	document.getElementById("distanceResultDisplay").innerHTML = distanceDisplay;
+
+	// 2. get the speed value and put into page
+	var speedBase = document.getElementById('speed');
+	var speedValue = speedBase.value;
+	var speedSelect = speed.selectedIndex;
+	var speedOptions = speedBase.options;
+	var speedDisplay = speedOptions[speedSelect].text
+	document.getElementById("speedResultDisplay").innerHTML = speedDisplay;
+
+
+	var travelTime = (distanceValue/speedValue).round(2);
+	console.log(travelTime + " minutes");
+	// 1. get hours
+	// var travelTime = (travelTime/60).round(2);
+	// console.log(travelTime + " hours")
+
+	// var travelTime = (travelTime/24).round(2);
+	// console.log(travelTime + " days")
+
+	// var travelTime = (travelTime/7).round(2);
+	// console.log(travelTime + " weeks")
+
+	// var travelTime = (travelTime/4.35).round(2);
+	// console.log(travelTime + " months")
+
+	// var travelTime = (travelTime/12).round(2);
+	// console.log(travelTime + " years")
+
+	// var travelTime = (travelTime/100).round(2);
+	// console.log(travelTime + " centuries")
+
+	// var travelTime = (travelTime/10).round(2);
+	// console.log(travelTime + " millenia")
+
+
+// document.getElementById("unitsResultDisplay").innerHTML = travelTime.round(2);
+}
+
+// 526680000 minutes in a millenia
+
+function travelTimeCalc(travelTime){
+	Number.prototype.round = function(places) {
+  		return +(Math.round(this + "e+" + places)  + "e-" + places);
+	}
+
+	// 1. get the distance value and put into page
+	var distanceBase = document.getElementById('distance');
+	var distanceValue = distanceBase.value;
+	var distanceSelect = distanceBase.selectedIndex;
+	var distanceOptions = distanceBase.options;
+	var distanceDisplay = distanceOptions[distanceSelect].text;
+	document.getElementById("distanceResultDisplay").innerHTML = distanceDisplay;
+
+	// 2. get the speed value and put into page
+	var speedBase = document.getElementById('speed');
+	var speedValue = speedBase.value;
+	var speedSelect = speed.selectedIndex;
+	var speedOptions = speedBase.options;
+	var speedDisplay = speedOptions[speedSelect].text
+	document.getElementById("speedResultDisplay").innerHTML = speedDisplay;
+
+	var travelTime = (distanceValue/speedValue);
+	var units;
+	var travelTime;
+	var travelTimeRemainder;
+	var travelTimeOutput;
+// 526680000
+
+
+var days = travelTime / 1440;
+console.log("days: " + days);
+traveltime -= days * 1440;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+// function getSelectedText(eltId){
+// 	var sel = document.getElementById(eltId).options[document.getElementById(eltId).selectedIndex].text;
+// 	return sel;
+// }
+
+// function addCommas (timeUnits, travelTime){
+
+// 	var travelTimeLength = travelTime.toString().length;
+
+// 	if(timeUnits === "years" && travelTime > 1) {
+// 		travelTime = Math.round(travelTime);
+		
+// 		if (travelTimeLength > 3) {
+// 			return travelTime.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+// 		} else {
+// 		return travelTime;
+// 		}	
+
+// 	} else {
+// 		return travelTime;
+// 	}
+
+// }
+
+
+
+// Hokay....
+// Problem here is using the generated values for the calculations - don;t do this because as the length of time you;re using increases so, the difference increases. Get the displayed distance and speed from elsewhere and use a base.
+/*
+So lets start again...
+
+We want to:
+Allow people to choose the destination and the speed and the app will calculate the time. 
+We also want to allow people to see how far the destination is from them in km, years and light years. Possibly in AUs and parsecs too.
+
+The first two are easy as is calculating the time but...
+
+The time needs to be presented in a specific format going:
+Years, months, weeks, days, hours, minutes, seconds.
+When you're dealing with thousands of units it needs to be comma seperated.
+
+
+function to convert hours into more appropriate units of measurement
+
+1. start by reducing it to km per minute as that's the lowest denomination we're going to be displaying.
+2. Going to be using the remainder function a lot here
+
+
+
+
+
+
+*/
+
+
+
+
+
+
+
+</script>
